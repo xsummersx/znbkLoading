@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML5/CSS3 Loading动画DEMO演示</title>
+        <style>
+
+</style>
+        <!-- 动画样式 -->
+        <link rel="stylesheet" href="znbkLoadJS/css/loading.css">
+        <!-- jquery -->
+        <script src="https://lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
+        <!-- 动画JS -->
+        <script src="znbkLoadJS/js/znbkLoading.js"></script>
+    </head>
+    <body>
+        <input type="button" value="button" id="btn-pause" onclick="func()">
+        <!-- 动画 -->
+        <div id="radar" class="radar" stype="margin:0px auto;margin-top:300px;">
+            <div class="trans_wqg"></div>
+            <div class="trans_wqg_low"></div>
+            <div class='L_transform'><div class='trans_bg'>
+                    <div class='bg_shade'></div><div class='circles topcircle'><div class='trio'><i></i></div></div>
+                    <div class='circles
+                        leftcircle active'><div class='trio'><i></i></div></div>
+                    <div class='circles rightcircle'><div class='trio'><i></i></div></div><div
+                        class='heart_box'>
+                        <div class='shan' style='transform: rotate(274deg);'></div></div></div></div>
+        </div>
+        <div id="loading" style="margin:0px auto;margin-top:20px;">
+        </div>
+    </body>
+</html>
+<script>
+  // 动画调用
+  znbkLoading.radarPaper("radar")
+  znbkLoading.drawPaper("loading",60);
+  function func(){
+    znbkLoading.drawContinue("loading",100,'slow');
+  }
+</script>
