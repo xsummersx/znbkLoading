@@ -290,6 +290,7 @@
   display: block;
   overflow: hidden;
   position: relative;
+  transform: scale(0.37);
 }
 
 .radar .ti {

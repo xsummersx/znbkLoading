@@ -18,6 +18,7 @@ var znbkLoading = (function () {
         thisDiv.innerHTML = "<div class='typing_loader'></div>";
     }
     //抽题进度条
+    var timer;//定时器
     function _drawPaper(id,cop,speed,width){
         var speedInt = 100;//默认速度
         if(speed=='fast'){
@@ -35,7 +36,7 @@ var znbkLoading = (function () {
         thisDiv.innerHTML = "<span class='draw_jdt_inner' id='"+id+"_jdtinner'></span>";
         var JDT = document.getElementById(id+'_jdtinner');
         var i=0
-        var timer = setInterval(function(){
+        timer = setInterval(function(){
             i++;
             JDT.style.width = i + '%';
             if(i >= copies){
@@ -45,6 +46,7 @@ var znbkLoading = (function () {
     }
     //进度条继续
     function _drawContinue(id,copies,speed){
+        clearInterval(timer);
         var speedInt = 100;//默认速度
         if(speed=='fast'){
             speedInt=20;
@@ -55,8 +57,7 @@ var znbkLoading = (function () {
         }
         var JDT = document.getElementById(id+'_jdtinner');
         var i=parseInt(JDT.style.width);
-        console.log(i)
-        var timer = setInterval(function(){
+        timer = setInterval(function(){
             i++;
             JDT.style.width = i + '%';
             if(i >= copies){
@@ -68,7 +69,7 @@ var znbkLoading = (function () {
     function _radarPaper(id) {  
         var thisDiv = document.getElementById(id);
         thisDiv.className="radar";
-        //thisDiv.innerHTML = "";
+        thisDiv.innerHTML = "<div class='trans_wqg'></div><div class='trans_wqg_low'></div><div class='L_transform'><div class='trans_bg'><div class='bg_shade'></div><div class='circles topcircle'><div class='trio'><i></i></div></div><div class='circles leftcircle active'><div class='trio'><i></i></div></div><div class='circles rightcircle'><div class='trio'><i></i></div></div><div class='heart_box'><div class='shan' style='transform: rotate(274deg);'></div></div></div></div>";
         $(function(){
             function getmatrix(a,b,c,d,e,f){
                 var aa=Math.round(180*Math.asin(a)/ Math.PI);
